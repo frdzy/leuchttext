@@ -2,8 +2,11 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import { fetchAllNotesAsync } from '@/pages/api/noteAction';
 
-const Home: NextPage = () => {
+const Home: NextPage = async () => {
+  const notes = await fetchAllNotesAsync();
+  console.log('notes', notes);
   return (
     <div className={styles.container}>
       <Head>
